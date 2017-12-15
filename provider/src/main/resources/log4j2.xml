@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN"  monitorInterval="3000"><!-- 每隔3000秒重新读取配置文件 -->
+    <properties><!-- 定义常量 -->
+        <property name="LOG_HOME">E://test/projectCase/logs</property>
+        <property name="FILE_NAME">web</property>
+    </properties>
+    <Appenders>
+        <!-- 日志输出格式 ：<Console是控制台,<File是文件,<RollingRandomAccessFile按时间和文件大小生成多个日志,<JDBC是数据库,<Async异步-->
+        <!-- Console 输出到控制台及格式-->
+        <Console name="toConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t]  %F %M %l- %-5level %logger{36} %msg%n" />
+        </Console>
+        <RollingRandomAccessFile name="toFileByRoll"
+                                 fileName="${LOG_HOME}/${FILE_NAME}.log"
+                                 filePattern="${LOG_HOME}/${date:yyyy-MM}/${FILE_NAME}-%d{yyyy-MM-dd HH-mm}-%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Policies>
+                <!--<TimeBasedTriggeringPolicy interval="1" />-->
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <DefaultRolloverStrategy max="2" />
+        </RollingRandomAccessFile>
+        <RollingFile name="debugAppender" immediateFlush="true"
+                     fileName="${LOG_HOME}/debug.log"
+                     filePattern="${LOG_HOME}/debug/debug-%d{yyyy-MM-dd HH-mm}-%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Policies>
+                <!--<TimeBasedTriggeringPolicy interval="1" />-->
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <Filters><!-- 此Filter意思是，只输出debug级别的数据 -->
+                <ThresholdFilter level="info" onMatch="DENY"
+                                 onMismatch="NEUTRAL" />
+                <ThresholdFilter level="debug" onMatch="ACCEPT"
+                                 onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+        <RollingFile name="infoAppender" immediateFlush="true"
+                     fileName="${LOG_HOME}/info.log"
+                     filePattern="${LOG_HOME}/info/info-%d{yyyy-MM-dd HH-mm}-%i.log">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+            <Policies>
+                <!--<TimeBasedTriggeringPolicy interval="1" />-->
+                <SizeBasedTriggeringPolicy size="1 MB" />
+            </Policies>
+            <Filters><!-- 此Filter意思是，只输出info级别的数据 -->
+                <ThresholdFilter level="warn" onMatch="DENY"
+                                 onMismatch="NEUTRAL" />
+                <ThresholdFilter level="info" onMatch="ACCEPT"
+                                 onMismatch="DENY" />
+            </Filters>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers><!-- 日志类别 -->
+        <!-- 定义根日志类别  查看level http://blog.csdn.net/techq/article/details/6636287-->
+        <Root level="trace">
+            <AppenderRef ref="toConsole" />
+            <AppenderRef ref="toFileByRoll" />
+            <AppenderRef ref="debugAppender" />
+            <AppenderRef ref="infoAppender" />
+        </Root>
+
+        <Logger name="mylog" additivity="false" level="TRACE"><!--additivity="false" 不再输出父级日志  -->
+            <AppenderRef ref="toConsole" />
+            <AppenderRef ref="toFileByRoll" />
+            <AppenderRef ref="infoAppender" />
+        </Logger>
+    </Loggers>
+</Configuration>

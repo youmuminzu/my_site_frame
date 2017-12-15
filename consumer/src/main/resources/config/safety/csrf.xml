@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--需要拦截器过滤的url值设置为1-->
+<!--不需要拦截器过滤的不用添加对应URL的标签，已经添加的可把值设置为0或者删除-->
+<data>
+    <!--admin模块下的子路径-->
+    <admin>
+        <dologin>1</dologin>
+        <test>0</test>
+    </admin>
+    <!--user模块下的子路径-->
+    <user>
+        <dologin>1</dologin>
+    </user>
+</data>
