@@ -1,8 +1,8 @@
-package api.admin.service;
+package admin.api;
 
 import java.util.HashMap;
 
-public interface AdminUserService {
-    public String getAdminUser(int id);
+public interface AdminUserApi {
     public HashMap checkLogin(String userName, String password);
+    public String doResetPassword(String userName,String password, String newPassword);
 }
