@@ -1,4 +1,5 @@
 package define.user.api;
 
-public class UserApi {
+public interface UserApi {
+    public String userTest(String param);
 }

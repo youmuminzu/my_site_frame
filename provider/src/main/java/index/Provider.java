@@ -8,7 +8,7 @@ public class Provider {
     public static void main(String[] args) throws IOException {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("/config/provider.xml");
         context.start();
-        System.out.println("service has started.服务已经启动");
+        System.out.println("provider has started. provider服务已经启动");
         System.in.read();
     }
 }

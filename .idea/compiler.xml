@@ -15,7 +15,9 @@
       <module name="consumer" target="1.6" />
       <module name="definedAPI" target="1.5" />
       <module name="porjectCase" target="1.5" />
+      <module name="projectCase" target="1.5" />
       <module name="provider" target="1.6" />
+      <module name="provider_2" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,4 +1,6 @@
-package app.admin.lib;
+package app.admin.lib.base;
 
-public class AdminBaseController {
+import lib.base.BaseController;
+
+public class AdminBaseController extends BaseController {
 }

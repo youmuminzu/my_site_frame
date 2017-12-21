@@ -13,8 +13,12 @@ public class AdminPermissionsInterceptor extends HandlerInterceptorAdapter  {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         HttpSession session = request.getSession();
-        Short userStatus = (Short) (session.getAttribute("userStatus"));
-        if(session.getAttribute("userId") == null || userStatus==null || userStatus==0) {
+        int userStatus = -1;
+        if(session.getAttribute("userStatus") != null) {
+            userStatus =  (Integer) session.getAttribute("userStatus");
+        }
+
+        if(session.getAttribute("userId") == null  || userStatus!=1) {
             response.sendRedirect("/admin/login");
             return false;
         }
@@ -22,7 +26,8 @@ public class AdminPermissionsInterceptor extends HandlerInterceptorAdapter  {
         String uri = request.getRequestURI();
 
         //判断是不是需要进行csrf攻击过滤验证
-        File file = new File("/config/safety/csrf.xml");
+        String classPath = this.getClass().getResource("/").getPath();
+        File file = new File(classPath + "config/safety/csrf.xml");
         SAXReader saxReader = new SAXReader();
         Document document = null;
         try {

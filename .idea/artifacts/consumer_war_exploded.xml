@@ -10,6 +10,8 @@
           <element id="archive" name="definedAPI-1.0.0.jar">
             <element id="module-output" name="definedAPI" />
           </element>
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
           <element id="library" level="project" name="Maven: dom4j:dom4j:1.6.1" />
           <element id="library" level="project" name="Maven: xml-apis:xml-apis:1.0.b2" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:4.3.9.RELEASE" />
@@ -49,6 +51,7 @@
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-web:2.8.2" />
           <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.7" />
           <element id="library" level="project" name="Maven: org.slf4j:log4j-over-slf4j:1.7.25" />
+          <element id="library" level="project" name="Maven: jaxen:jaxen:1.2.0-atlassian-2" />
           <element id="library" level="project" name="Maven: com.alibaba:fastjson:1.2.35" />
           <element id="library" level="project" name="Maven: com.alibaba:dubbo:2.5.7" />
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.20.0-GA" />

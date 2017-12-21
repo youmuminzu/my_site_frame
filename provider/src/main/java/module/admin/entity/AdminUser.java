@@ -3,12 +3,21 @@ package module.admin.entity;
 public class AdminUser {
     public int id;
     public String name;
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+
     private String password;
     private String salt;
     private short status;
     private short roleId;
     private String createTime;
-
+    private String updateTime;
     public String getUpdateTime() {
         return updateTime;
     }
@@ -17,7 +26,7 @@ public class AdminUser {
         this.updateTime = updateTime;
     }
 
-    private String updateTime;
+
     private AdminRole role;
 
     public AdminRole getRole() {

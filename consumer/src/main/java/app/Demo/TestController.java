@@ -1,6 +1,6 @@
 package app.Demo;
 
-import api.admin.service.AdminUserService;
+import define.admin.api.AdminUserApi;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,11 +20,11 @@ public class TestController {
     }
 
     @Autowired
-    private AdminUserService adminUserService;
+    private AdminUserApi adminUserApi;
     @RequestMapping(value = "/test/t2")
     @ResponseBody
     public String adminName(){
 
-        return adminUserService.getAdminUser(1);
+        return "test admin name";
     }
 }

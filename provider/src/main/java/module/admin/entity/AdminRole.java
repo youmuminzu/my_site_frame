@@ -7,6 +7,15 @@ public class AdminRole {
     private String role;
     private String description;
 
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    private int status;
     public List<Integer> getPermissionIds() {
         return permissionIds;
     }
@@ -49,5 +58,6 @@ public class AdminRole {
     public void setPermissions(List<AdminPermission> permissions) {
         this.permissions = permissions;
     }
+
 
 }
