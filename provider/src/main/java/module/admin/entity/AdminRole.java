@@ -1,8 +1,9 @@
 package module.admin.entity;
 
+import define.admin.entity.AdminPermission;
 import java.util.List;
 
-public class AdminRole {
+public class AdminRoleImpl {
     private int id;
     private String role;
     private String description;

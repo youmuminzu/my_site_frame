@@ -1,23 +1,24 @@
 package module.admin.entity;
 
-public class AdminUser {
+public class AdminUserImpl {
     public int id;
     public String name;
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
     private String password;
     private String salt;
     private short status;
     private short roleId;
     private String createTime;
     private String updateTime;
+    private AdminRoleImpl role;
+
+
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getUpdateTime() {
         return updateTime;
     }
@@ -26,26 +27,23 @@ public class AdminUser {
         this.updateTime = updateTime;
     }
 
-
-    private AdminRole role;
-
-    public AdminRole getRole() {
+    public AdminRoleImpl getRole() {
         return role;
     }
 
-    public void setRole(AdminRole role) {
+    public void setRole(AdminRoleImpl role) {
         this.role = role;
     }
 
-    public AdminRole getAdminRole() {
-        return adminRole;
+    public AdminRoleImpl getAdminRoleImpl() {
+        return adminRoleImpl;
     }
 
-    public void setAdminRole(AdminRole adminRole) {
-        this.adminRole = adminRole;
+    public void setAdminRoleImpl(AdminRoleImpl adminRoleImpl) {
+        this.adminRoleImpl = adminRoleImpl;
     }
 
-    private AdminRole adminRole;
+    private AdminRoleImpl adminRoleImpl;
 
     public String getPassword() {
         return password;
